@@ -27,7 +27,7 @@
     "yieldbot",
     "nginad",
     "brightcom",
-	"wideorbit",
+    "wideorbit",
     {
       "appnexus": {
         "alias": "brealtime"
@@ -40,9 +40,7 @@
     }
   ],
   "analytics": [
-    "example",
-    "example2",
-    "ga"
+    "appnexus"
   ],
   "author": "the prebid.js contributors",
   "license": "Apache-2.0",

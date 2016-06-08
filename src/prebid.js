@@ -39,7 +39,7 @@ pbjs._bidsReceived = [];
 pbjs._adsReceived = [];
 
 //default timeout for all bids
-pbjs.bidderTimeout = pbjs.bidderTimeout || 2000;
+pbjs.bidderTimeout = pbjs.bidderTimeout || 3000;
 pbjs.logging = pbjs.logging || false;
 
 //let the world know we are loaded
@@ -470,7 +470,7 @@ pbjs.requestBids = function ({ bidsBackHandler, timeout, adUnits, adUnitCodes })
   //set timeout for all bids
   setTimeout(bidmanager.executeCallback, cbTimeout);
 
-  adaptermanager.callBids({ adUnits, adUnitCodes });
+  adaptermanager.callBids({ adUnits, adUnitCodes, cbTimeout });
 };
 
 /**
