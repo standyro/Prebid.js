@@ -58,7 +58,13 @@ gulp.task('webpack', function () {
 
   webpackConfig.devtool = null;
 
-  return gulp.src(['src/prebid.js'])
+  // include analytics libraires in distributable with --analytics
+  let analyticsSources = [];
+  if (argv.analytics) {
+    analyticsSources = helpers.getAnalyticsSources('../analytics');
+  }
+
+  return gulp.src(['src/prebid.js', ...analyticsSources])
     .pipe(webpack(webpackConfig))
     .pipe(replace('$prebid.version$', prebid.version))
     .pipe(uglify())
@@ -175,4 +181,3 @@ gulp.task('docs', ['clean-docs'], function () {
     })
     .pipe(gulp.dest('docs'));
 });
-
